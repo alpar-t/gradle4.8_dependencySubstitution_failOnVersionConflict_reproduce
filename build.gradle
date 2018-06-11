@@ -1,0 +1,23 @@
+apply plugin: "java"
+dependencies {
+    compile "foo:bar:1"
+    compile project(":sub1")
+}
+
+allprojects {
+    version = '0.0.1'
+    repositories {
+        mavenCentral()
+    }    
+}
+
+configurations.all {
+  resolutionStrategy { 
+      dependencySubstitution { DependencySubstitutions subs ->
+          subs.substitute(subs.module('foo:bar:1')).with(subs.project(':sub1'))
+      }
+      failOnVersionConflict()    
+      // uncomment for a work-around: 
+      //preferProjectModules()
+  }
+}
