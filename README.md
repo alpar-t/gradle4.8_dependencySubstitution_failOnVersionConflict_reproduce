@@ -1,4 +1,4 @@
-Reproduce [gradle/gradle#5692] with Gradle 4.8
+Reproduce gradle/gradle#5692 with Gradle 4.8
 
 Run:
 ```
